@@ -40,7 +40,7 @@ dependencies {
 }
 
 serenity {
-    testRoot = "com.exito"
+    testRoot = "com.swaglabs"
     requirementsDir = "src/test/resources/features"
 }
 
