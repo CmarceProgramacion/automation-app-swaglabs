@@ -10,7 +10,7 @@ Feature: Validate shopping cart
 
   Background: Access to the main platform
     Given that I access the app of the Swaglabs
-      | standard_user | secret_sauce |
+      | standard_user | secret_sauce | PRODUCTS |
 
   @loginBuyProducts
   Scenario Outline: Validate the product in the shopping cart on the app

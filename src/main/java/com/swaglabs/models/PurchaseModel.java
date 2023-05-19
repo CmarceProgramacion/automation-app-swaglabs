@@ -2,19 +2,18 @@ package com.swaglabs.models;
 
 import java.util.List;
 
-public class PurchaseModels {
+public class PurchaseModel {
     private String productName;
     private String firstName;
     private String lastName;
     private String postalCode;
 
-    public PurchaseModels(List<String> logData) {
+    public PurchaseModel(List<String> logData) {
         this.productName = logData.get(0);
         this.firstName = logData.get(1);
         this.lastName = logData.get(2);
         this.postalCode = logData.get(3);
     }
-
 
     public String getProductName() {
         return productName;

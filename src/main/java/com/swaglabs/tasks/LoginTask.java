@@ -7,16 +7,16 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.ensure.Ensure;
 
 import static com.swaglabs.userinterfaces.LoginSwaglabsPage.*;
+import static com.swaglabs.userinterfaces.ProductsPage.LABEL_MESSAGE;
 
 public class LoginTask implements Task {
-    private String user;
-    private String password;
+    private final UserModel userModel;
 
     public LoginTask(UserModel userModel) {
-        this.user = userModel.getUser();
-        this.password = userModel.getPassword();
+        this.userModel = userModel;
     }
 
     public static Performable withTheData(UserModel userModel) {
@@ -26,8 +26,9 @@ public class LoginTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Enter.theValue(user).into(USER_INPUT),
-                Enter.theValue(password).into(PASSWORD_INPUT),
-                Click.on(BUTTON_LOGIN));
+                Enter.theValue(userModel.getUser()).into(USER_INPUT),
+                Enter.theValue(userModel.getPassword()).into(PASSWORD_INPUT),
+                Click.on(BUTTON_LOGIN),
+                Ensure.that(LABEL_MESSAGE.of(userModel.getLoginValidation())).isDisplayed());
     }
 }
