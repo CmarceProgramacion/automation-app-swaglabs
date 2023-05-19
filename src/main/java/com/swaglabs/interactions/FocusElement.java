@@ -19,7 +19,6 @@ public class FocusElement extends UIInteractionSteps implements Interaction {
         return Tasks.instrumented(FocusElement.class, textElement);
     }
 
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         Serenity.getDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector())" +
